@@ -50,7 +50,7 @@ function displayShuffledCards() {
                     cardMatch[1].classList.remove('boxOpen')
                     cardMatch[0].classList.remove('boxOpen')
 
-                    if document
+                    // if document
                   }
               }
             })
