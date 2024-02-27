@@ -50,7 +50,13 @@ function displayShuffledCards() {
                     cardMatch[1].classList.remove('boxOpen')
                     cardMatch[0].classList.remove('boxOpen')
 
-                    // if document
+                    if(document.querySelectorAll('.boxMatch').length === cards.length){
+                      alert('win')
+                    } else{
+                      cardMatch[1].classList.remove('boxOpen')
+                      cardMatch[0].classList.remove('boxOpen')
+                    
+                    }
                   }
               }
             })
@@ -59,6 +65,44 @@ function displayShuffledCards() {
     });
 
 } 
+
+function displayShuffledCards() {
+  const shuffledCards = shuffle(cards);
+  const gameContainer = document.getElementById('game');
+  gameContainer.innerHTML = '';
+  let openedCards = [];
+  shuffledCards.forEach(function(card) {
+      let square = document.createElement('div');
+      square.className = 'item';
+      square.textContent = card;
+      gameContainer.appendChild(square);
+      square.onclick = function() {
+          if (openedCards.length < 2 && !this.classList.contains('boxOpen')) {
+              this.classList.add('boxOpen');
+              openedCards.push(this);
+              if (openedCards.length === 2) {
+                  setTimeout(function() {
+                      if (openedCards[0].innerHTML === openedCards[1].innerHTML) {
+                          openedCards.forEach(function(card) {
+                              card.classList.add('boxMatch');
+                          });
+                          openedCards = [];
+                          if (document.querySelectorAll('.boxMatch').length === shuffledCards.length) {
+                              alert('You win!');
+                          }
+                      } else {
+                          openedCards.forEach(function(card) {
+                              card.classList.remove('boxOpen');
+                          });
+                          openedCards = [];
+                      }
+                  }, 1000); // Adjust the timeout as needed
+              }
+          }
+      };
+  });
+}
+
 
 displayShuffledCards();
 
