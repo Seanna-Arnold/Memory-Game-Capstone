@@ -114,7 +114,11 @@ function stopTimer() {
 
 // Event listener for reset button
 const resetButton = document.querySelector('button');
+
+openedCards=false;
+
 resetButton.addEventListener('click', function() {
+    openedCards=[];
     document.querySelector('button').innerHTML = 'RESET';
     stopTimer(); // Stop the timer
     document.getElementById('timer').innerHTML = ''; // Clear the timer display
