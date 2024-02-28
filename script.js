@@ -6,10 +6,8 @@ const cards = ['🐊','🐧','🐆','🦏','🦈','🦒','🦁','🐃','🐊','�
 function shuffle(cards) {
     let currentIndex = cards.length,  randomIndex;
   
-    // While there remain elements to shuffle.
     while (currentIndex > 0) {
   
-      // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
@@ -31,41 +29,54 @@ function shuffle(cards) {
 function displayShuffledCards() {
 
   const shuffledCards = shuffle(cards);
-  const gameContainer = document.getElementById('game'); // Get the game container element
+  // Get the game container element
+  const gameContainer = document.getElementById('game'); 
   gameContainer.innerHTML = '';
   let openedCards = [];
 
   shuffledCards.forEach(function(card) {
-      let square = document.createElement('div'); // Create a new div for each card
+     // Create a new div for each card
+      let square = document.createElement('div');
       square.className = 'item';
-      square.textContent = card; // Set the text content of the div to the card
+      // Set the text content(our emojis) of the div to the card
+      square.textContent = card; 
       gameContainer.appendChild(square);
+
+
+      //this function determines how you win and lose
       square.onclick = function() {
-       
         
+        //if 2 cards are flipped over the following code will continue
           if (openedCards.length < 2 && !this.classList.contains('boxOpen')) {
               this.classList.add('boxOpen'); 
               openedCards.push(this);
               if (openedCards.length === 2) { 
                 
                   setTimeout(function() {
+                    //this fist statement allows for two of the same selected cards to
+                    //stay faced up
                       if (openedCards[0].innerHTML === openedCards[1].innerHTML) {
                           openedCards.forEach(function(card) {
                               card.classList.add('boxMatch');
                           });
+                          //this second statement allows determines a win once all cards
+                          //are faced upwards
                           openedCards = [];
                           if (document.querySelectorAll('.boxMatch').length === shuffledCards.length) {
                               clearInterval(timer);
+                              //winner message displayed
                               document.getElementById('timer').innerHTML = 'congrats, you win!';
+                              //button text displayed if player won
                               document.querySelector('button').innerHTML = 'RESET';
                           }
                       } else {
+                        //if cards don't match, flip back over
                           openedCards.forEach(function(card) {
                               card.classList.remove('boxOpen');
                           });
                           openedCards = [];
                       }
-                  }, 900); // Adjust the timeout as needed
+                  }, 1000);
               }
               
           }
@@ -100,6 +111,7 @@ function stopTimer() {
 // Event listener for reset button
 const resetButton = document.querySelector('button');
 resetButton.addEventListener('click', function() {
+    document.querySelector('button').innerHTML = 'RESET';
     stopTimer(); // Stop the timer
     document.getElementById('timer').innerHTML = ''; // Clear the timer display
     displayShuffledCards(); // Reset the game

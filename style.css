@@ -81,8 +81,8 @@ button {
     height: 80px;
     justify-content: center;
     align-items: center;
-    transform: rotateY(180deg);
-    transition: 0.4s;
+    transform: rotnateY(180deg);
+    transition: 1s;
 }
 
 .item.boxOpen{
@@ -94,7 +94,7 @@ button {
     position: absolute;
     inset: 0;
     background: #BE660E;
-    transition: 0.4s;
+    transition: 0.5s;
     transform: rotateY(0deg);
     backface-visibility: hidden;
     /* usability */
