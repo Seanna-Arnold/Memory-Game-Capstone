@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body {
@@ -20,8 +21,9 @@ h2 {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: black;
+    letter-spacing: 5px;
+    color: rgb(92, 92, 92);
+    font-weight: 7px;
 }
 
 h3 {
@@ -31,9 +33,19 @@ h3 {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-weight: 5;
+    font-weight: 3.5px;
     font-size: small;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
+    color: darkgray;
+}
+
+h4 {
+    font-weight: lighter;
+    font-size: 12px;
+    margin-top: -25px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: gray;
 }
 
 button {
@@ -47,6 +59,7 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 15px;
 }
 
 #game {
@@ -86,6 +99,7 @@ button {
     backface-visibility: hidden;
     /* usability */
     cursor: pointer; 
+    border: 1.2px solid black;
 }
 
 
