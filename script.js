@@ -23,7 +23,7 @@ function shuffle(cards) {
     return cards;
 }
 
-
+let openedCards;
 
 //create a fuction to attach shuffled cards to html
 function displayShuffledCards() {
@@ -32,7 +32,8 @@ function displayShuffledCards() {
   // Get the game container element
   const gameContainer = document.getElementById('game'); 
   gameContainer.innerHTML = '';
-  let openedCards = [];
+//   let openedCards = [];
+openedCards=[];
 
   shuffledCards.forEach(function(card) {
      // Create a new div for each card
@@ -96,7 +97,10 @@ function startTimer() {
         if (count === 0) {
             clearInterval(timer);
             document.getElementById('timer').innerHTML = 'Oops...give it another shot!';
+            //made the cards unable to turn if you lose
+            openedCards=false;
             document.querySelector('button').innerHTML = 'TRY AGAIN';
+
             // Call startTimer again if you want to restart the timer automatically
             // startTimer();
         }
