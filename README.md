@@ -17,6 +17,14 @@ I developed a traditional memory game, integrating an array of fun animal emojis
 - HTML
 - CSS
 
+# Blame
+
+- SheCodes
+- W3schools
+- stackoverflow
+- Arjun Khara (css flip)
+- Online Tutorials (css js card flip)
+
 # Getting Started
 
 ### View Project Planning:
