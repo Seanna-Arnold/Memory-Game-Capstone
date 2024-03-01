@@ -17,7 +17,7 @@ I developed a traditional memory game, integrating an array of fun animal emojis
 - HTML
 - CSS
 
-# Blame
+# Credits
 
 - SheCodes
 - W3schools
