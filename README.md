@@ -16,6 +16,7 @@ I developed a traditional memory game, integrating an array of fun animal emojis
 - JavaScript
 - HTML
 - CSS
+- Figma(wireframe)
 
 # Credits
 
